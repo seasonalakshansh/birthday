@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday 💖</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Georgia', serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd6e8, #fff1c1);
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .hint {
+      margin-bottom: 16px;
+      font-size: 1rem;
+      color: #7a2e4d;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    .envelope {
+      width: 280px;
+      max-width: 90vw;
+      height: 180px;
+      position: relative;
+      background: #f7b7d2;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease;
+    }
+
+    .envelope:hover {
+      transform: scale(1.03);
+    }
+
+    .envelope::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent 50%, #f29ac0 50%);
+      clip-path: polygon(0 0, 100% 0, 50% 60%);
+      border-radius: 12px 12px 0 0;
+    }
+
+    .heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: #b3005e;
+    }
+
+    .letter {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+
+    .letter.open {
+      display: flex;
+    }
+
+    .paper {
+      background: #fffdf8;
+      max-width: 600px;
+      width: 100%;
+      padding: 28px 22px;
+      border-radius: 16px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+      animation: unfold 0.6s ease;
+    }
+
+    @keyframes unfold {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+      text-align: center;
+      color: #c2185b;
+      margin-bottom: 8px;
+      font-size: 1.8rem;
+    }
+
+    h2 {
+      text-align: center;
+      color: #7a2e4d;
+      font-weight: normal;
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #4a2a36;
+      font-size: 1rem;
+      margin-top: 16px;
+    }
+
+    .signature {
+      margin-top: 24px;
+      text-align: right;
+      font-style: italic;
+    }
+
+    .close {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5rem; }
+      p { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hint">Tap the letter 💌</div>
+    <div class="envelope" onclick="openLetter()">
+      <div class="heart">❤️</div>
+    </div>
+  </div>
+
+  <div class="letter" id="letter" onclick="closeLetter(event)">
+    <div class="paper">
+      <h1>Happy Birthday 🎉</h1>
+      <h2>To my Cartoon, Narges, my patootee 💕</h2>
+
+      <p>
+        Today is special because <strong>you</strong> exist. You are warmth, laughter,
+        comfort, and magic wrapped into one beautiful soul. Whether I call you
+        Cartoon, Narges, or my patootee — you are always <em>my favorite person</em>.
+      </p>
+
+      <p>
+        May your days be filled with smiles that never fade, dreams that come true,
+        and love that surrounds you from every direction. You deserve softness,
+        happiness, and a thousand reasons to smile — today and always.
+      </p>
+
+      <p>
+        Never forget how deeply cherished you are. This little letter is just a tiny
+        reflection of how big my love is for you.
+      </p>
+
+      <div class="signature">
+        With all my heart 💖<br />
+        — Akshansh
+      </div>
+
+      <div class="close">(Tap anywhere outside the letter to close)</div>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById('letter').classList.add('open');
+    }
+
+    function closeLetter(e) {
+      if (e.target.id === 'letter') {
+        document.getElementById('letter').classList.remove('open');
+      }
+    }
+  </script>
+</body>
+</html>
